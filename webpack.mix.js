@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+require('laravel-mix-bundle-analyzer');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +12,14 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+if (!mix.inProduction()) {
+    mix.bundleAnalyzer();
+}
+
+mix.js('resources/js/kututis.js', 'public/js')
+    .sass('resources/sass/kututis.scss', 'public/css')
+    .options({
+        processCssUrls: false
+    })
+    .sourceMaps();
+

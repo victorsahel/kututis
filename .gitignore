@@ -4,6 +4,8 @@
 /public/storage
 /storage/*.key
 /vendor
+*.zip
+*.rar
 .env
 .env.backup
 .phpunit.result.cache

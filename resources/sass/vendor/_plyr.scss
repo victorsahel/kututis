@@ -1,0 +1,16 @@
+.media-player {
+    display: flex;
+}
+
+:root {
+  --plyr-color-main: #{$primary};
+}
+
+.media-player > .plyr {
+    width: 100%;
+}
+
+.plyr--audio .plyr__menu__container {
+    top: 40px;
+    bottom: auto;
+}
