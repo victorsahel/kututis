@@ -19,6 +19,7 @@ class MedicoController extends Controller
         $respuesta = Http::get(api_url('/api/listarpacientesxmedico/' . $id));
         $pacientes = $respuesta->json();
         if (!$pacientes) {
+            //FIXME: extract from jwt
             $medico = Http::get(api_url('/api/medico/buscarxid/'.$id))->json()[0];
         } else {
             $medico = $pacientes[0]['medico'];
@@ -81,17 +82,14 @@ class MedicoController extends Controller
 
     }
 
-    public function lista_archivos_praxias($id_medico, $id_user, $id)
+    public function lista_archivos_praxias($id_medico, $id_user, $id_praxia ,$id)
     {
         $respuesta = Http::get(api_url('/api/archivos_sesion_praxia/buscararchivosxsesionpraxiaid/' . $id));
         $archivos_sesion_praxias = $respuesta->json();
         $id_sesion_praxia = $id;
 
-        $praxia_id = $archivos_sesion_praxias[0]['sesion__praxia']['praxias_id'];
-        $paciente_id = $archivos_sesion_praxias[0]['sesion__praxia']['paciente_id'];
-
-        $praxia = Http::get(api_url('/api/praxia/buscarxid/' . $praxia_id))->json()[0];
-        $paciente = Http::get(api_url('/api/paciente/buscarxid/' . $paciente_id))->json()[0];
+        $praxia = Http::get(api_url('/api/praxia/buscarxid/' . $id_praxia))->json()[0];
+        $paciente = Http::get(api_url('/api/paciente/buscarxid/' . $id_user))->json()[0];
 
         return view('lista_archivos_praxias', compact('archivos_sesion_praxias', 'id_medico', 'id_user', 'id_sesion_praxia', 'praxia', 'paciente'));
 
@@ -168,16 +166,14 @@ class MedicoController extends Controller
     }
 
     //lista_archivos_fonemas
-    public function lista_archivos_fonemas($id_medico, $id_user, $id)
+    public function lista_archivos_fonemas($id_medico, $id_user, $id_fonema, $id)
     {
         $respuesta = Http::get(api_url('/api/archivos_sesion_fonema/buscararchivosxsesionfonemaid/' . $id));
         $archivos_sesion_fonemas = $respuesta->json();
         // $video64 = base64_decode($archivos_sesion_praxias->archivo);
-        $fonema_id = $archivos_sesion_fonemas[0]['sesion__fonema']['fonema_id'];
-        $paciente_id = $archivos_sesion_fonemas[0]['sesion__fonema']['paciente_id'];
 
-        $fonema = Http::get(api_url('/api/fonema/buscarxid/' . $fonema_id))->json()[0];
-        $paciente = Http::get(api_url('/api/paciente/buscarxid/' . $paciente_id))->json()[0];
+        $fonema = Http::get(api_url('/api/fonema/buscarxid/' . $id_fonema))->json()[0];
+        $paciente = Http::get(api_url('/api/paciente/buscarxid/' . $id_user))->json()[0];
 
         $id_sesion_fonema = $id;
 

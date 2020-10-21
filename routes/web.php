@@ -120,8 +120,8 @@ Route::prefix('medico')->middleware(['jtw', 'role:medico', 'id'])->group(functio
     Route::post('crear_sesion_vocabulario/{id_medico}', array('as' => 'crear_sesion_vocabulario', 'uses' => 'MedicoController@crear_sesion_vocabulario'));
 
     /** INTENTOS EN UNA SESION */
-    Route::get('lista_archivos_praxias/{id_medico}/{id_user}/{id_sesion_praxia}', 'MedicoController@lista_archivos_praxias')->name('medico.pacientes.praxias.archivos.index');
-    Route::get('lista_archivos_fonemas/{id_medico}/{id_user}/{id_sesion_fonema}', 'MedicoController@lista_archivos_fonemas')->name('medico.pacientes.fonemas.archivos.index');
+    Route::get('lista_archivos_praxias/{id_medico}/{id_user}/{id_praxia}/{id_sesion_praxia}', 'MedicoController@lista_archivos_praxias')->name('medico.pacientes.praxias.archivos.index');
+    Route::get('lista_archivos_fonemas/{id_medico}/{id_user}/{id_fonema}/{id_sesion_fonema}', 'MedicoController@lista_archivos_fonemas')->name('medico.pacientes.fonemas.archivos.index');
 
     /** ARCHIVOS ENVIADOS */
     Route::get('ver_archivos_praxias/{id_medico}/{id_user}/{id_sesion_praxia}/{id_archivo_praxia}', 'MedicoController@ver_archivos_praxias')->name('medico.pacientes.praxias.archivos.show');

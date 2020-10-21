@@ -75,7 +75,7 @@
                             <td>
                                 <div class="btn-list">
                                     <a type="button"
-                                       href="{{   url("medico/lista_archivos_praxias/{$id_medico}/{$id_user}/{$sesion_praxia['id']}") }}"
+                                       href="{{   url("medico/lista_archivos_praxias/{$id_medico}/{$id_user}/{$sesion_praxia['praxias_id']}/{$sesion_praxia['id']}") }}"
                                        class="btn btn-icon btn-link btn-lg" title="Evaluar">
                                         <i class="fas fa-file-alt"></i>
                                     </a>
