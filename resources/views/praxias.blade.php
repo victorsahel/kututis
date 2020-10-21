@@ -49,7 +49,7 @@
                             <td>{{ $praxia['Descripcion'] }}</td>
                             <td>
                                 <img
-                                    src="{{ env('APP_URL').'/web-kututis/storage/app/public/praxia_'.str_replace(' ', '_', $praxia['Nombre']).'.png'}} ">
+                                    src="{{ asset('storage/'.$praxia['img_path']) }} ">
                             </td>
                             <td>
                                 <div class="btn-list">

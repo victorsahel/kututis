@@ -48,7 +48,7 @@
                             <td>{{ $vocabular['Palabra'] }}</td>
                             <td>{{ $vocabular['fonema']['Nombre'] }}</td>
                             <td><img
-                                    src="{{ env('APP_URL').'/web-kututis/storage/app/public/vocabulario_'.$vocabular['Palabra'].'.png'}} ">
+                                    src="{{ asset('storage/'.$vocabular['img_path']) }}">
                             </td>
                             <td>
                                 <div class="btn-list flex-nowrap justify-content-end">

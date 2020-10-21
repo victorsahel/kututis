@@ -105,9 +105,19 @@ class AdminController extends Controller
         $respuesta = Http::get(api_url('/api/listarpraxias'));
         $praxias = $respuesta->json();
 
-        foreach ($praxias as $praxia) {
-            $this->recoverFile($praxia['imagen'], $praxia['Nombre'], 'praxia', 'png');
-            $this->recoverFile($praxia['Video'], $praxia['Nombre'], 'praxia', 'mp4');
+        $prefix = 'praxia';
+
+        foreach ($praxias as $i => $praxia) {
+
+            //TODO: tmp;
+
+            $name = $praxia['Nombre'];
+            $filename = str_replace(' ', '_', $name);
+            $praxias[$i]['img_path'] = "{$prefix}_{$filename}.png";
+            //$praxias[$i]['vid_path'] = "{$prefix}_{$filename}.mp4";
+
+            $this->recoverFile($praxia['imagen'], $name, $prefix, 'png');
+            $this->recoverFile($praxia['Video'], $name, $prefix, 'mp4');
         }
 
         return view('praxias', compact('praxias'));
@@ -315,8 +325,13 @@ class AdminController extends Controller
         $respuesta = Http::get(api_url('/api/listarfonemas'));
         $fonemas = $respuesta->json();
 
-        foreach ($fonemas as $fonema) {
-            $this->recoverFile($fonema['imagen'], $fonema['Nombre'], 'fonema', 'png');
+        $prefix = 'fonema';
+
+        foreach ($fonemas as $i => $fonema) {
+            $name = $fonema['Nombre'];
+            $this->recoverFile($fonema['imagen'], $fonema['Nombre'], $prefix , 'png');
+            $filename = str_replace(' ', '_', $name);
+            $fonemas[$i]['img_path'] = "{$prefix}_{$filename}.png";
         }
         return view('consonan', compact('fonemas'));
     }
@@ -417,9 +432,11 @@ class AdminController extends Controller
         $prefix = 'vocabulario';
         $ext = 'png';
 
-        foreach ($vocabulario as $item) {
+        foreach ($vocabulario as $i => $item) {
             $name = $item['Palabra'];
             $this->recoverFile($item['imagen'], $name, $prefix, $ext);
+            $filename = str_replace(' ', '_', $name);
+            $vocabulario[$i]['img_path'] = "{$prefix}_{$filename}.{$ext}";
         }
 
         return view('vocabulario', compact('vocabulario'));

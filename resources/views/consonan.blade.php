@@ -51,7 +51,7 @@
                             <td>{{ $fonema['Tipo'] }}</td>
                             <td>{{ $fonema['Descripcion'] }}</td>
                             <td><img
-                                    src="{{ env('APP_URL').'/web-kututis/storage/app/public/fonema_'.$fonema['Nombre'].'.png'}} ">
+                                    src="{{ asset('storage/'.$fonema['img_path']) }}">
                             </td>
                             <td>
                                 <div class="btn-list flex-nowrap justify-content-end">
