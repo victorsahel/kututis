@@ -37,7 +37,8 @@
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <x-input name="Descripcion" required value="{{ $fonema[0]['Descripcion'] }}">Descripción</x-input>
+                            <x-input name="Descripcion" required value="{{ $fonema[0]['Descripcion'] }}">Descripción
+                            </x-input>
                         </div>
                         <div class="col-md-6 mb-3">
                             <x-file-input name="imagen" value="{{ $fonema[0]['imagen'] }}" accept="image/png"
@@ -49,12 +50,12 @@
 
                 <div class="card-footer d-flex justify-content-center">
                     <div class="btn-list flex-nowrap">
-                        <a class="btn btn-primary" href="{{ $parent_dir }}">
-                            Cancelar
-                        </a>
                         <button type="submit" class="btn btn-secondary ml-auto">
                             @yield('title')
                         </button>
+                        <a class="btn btn-primary" href="{{ $parent_dir }}">
+                            Cancelar
+                        </a>
                     </div>
                 </div>
             </form>

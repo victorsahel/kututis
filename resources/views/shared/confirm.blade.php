@@ -29,15 +29,15 @@
                 @section('modal-footer')
                     <div class="modal-footer justify-content-center">
                         <div class="btn-list flex-nowrap">
-                            @if($modal['cancel'] ?? true)
-                                <button type="button"
-                                        class="btn {{$modal['cancel_class'] ?? 'btn-secondary'}} mx-2 modal-cancel"
-                                        data-dismiss="modal">{{$modal['cancel_txt'] ?? 'Cancelar'}}</button>
-                            @endif
                             @if($modal['confirm'] ?? true)
                                 <a type="button"
                                    class="btn {{$modal['confirm_class'] ?? 'btn-primary'}} mx-2 modal-confirm"
                                    href="{{$modal['confirm_url'] ?? url()->current()}}">{{$modal['confirm_txt'] ?? 'Aceptar'}}</a>
+                            @endif
+                            @if($modal['cancel'] ?? true)
+                                <button type="button"
+                                        class="btn {{$modal['cancel_class'] ?? 'btn-secondary'}} mx-2 modal-cancel"
+                                        data-dismiss="modal">{{$modal['cancel_txt'] ?? 'Cancelar'}}</button>
                             @endif
                         </div>
                     </div>

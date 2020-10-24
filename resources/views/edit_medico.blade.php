@@ -37,10 +37,13 @@
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <x-input type="email" name="Correo" required value="{{ $medico['Correo'] }}">Correo</x-input>
+                            <x-input type="email" name="Correo" required value="{{ $medico['Correo'] }}">Correo
+                            </x-input>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <x-input type="password" name="Contrasenia" required value="{{ $medico['Contrasenia'] }}">Contraseña</x-input>
+                            <x-input type="password" name="Contrasenia" required value="{{ $medico['Contrasenia'] }}">
+                                Contraseña
+                            </x-input>
                         </div>
                     </div>
 
@@ -71,13 +74,13 @@
 
                     <div class="card-footer d-flex justify-content-center">
                         <div class="btn-list flex-nowrap">
-                        <a class="btn btn-primary" href="{{ $parent_dir }}">
-                            Cancelar
-                        </a>
-                        <button type="submit" class="btn btn-secondary ml-auto">
-                            @yield('title')
-                        </button>
-                    </div>
+                            <button type="submit" class="btn btn-secondary ml-auto">
+                                @yield('title')
+                            </button>
+                            <a class="btn btn-primary" href="{{ $parent_dir }}">
+                                Cancelar
+                            </a>
+                        </div>
                     </div>
             </form>
         </div>

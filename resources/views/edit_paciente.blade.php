@@ -31,36 +31,42 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <x-input type="text" required name="Nombre" readonly
-                                     value="{{ $paciente[0]['Nombre'] }}">Nombre</x-input>
+                                     value="{{ $paciente[0]['Nombre'] }}">Nombre
+                            </x-input>
                         </div>
                         <div class="col-md-6 mb-3">
                             <x-input type="text" required name="Apellido" readonly
-                                     value="{{ $paciente[0]['Apellido'] }}">Apellido</x-input>
+                                     value="{{ $paciente[0]['Apellido'] }}">Apellido
+                            </x-input>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <x-input type="email" required name="Correo" readonly
-                                     value="{{ $paciente[0]['Correo'] }}">Correo</x-input>
+                                     value="{{ $paciente[0]['Correo'] }}">Correo
+                            </x-input>
                         </div>
                         <div class="col-md-6 mb-3">
                             <x-input type="password" required name="Contrasenia" readonly
-                                     value="{{ $paciente[0]['Contrasenia'] }}">Contraseña</x-input>
+                                     value="{{ $paciente[0]['Contrasenia'] }}">Contraseña
+                            </x-input>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <x-input type="text" required name="Celular" readonly
-                                     value="{{ $paciente[0]['Celular'] }}">Celular</x-input>
+                                     value="{{ $paciente[0]['Celular'] }}">Celular
+                            </x-input>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-label required">Médico</div>
                             <div>
                                 @forelse($medicos as $medico)
                                     <label class="form-check">
-                                        <input class="form-check-input @error('medico_id') is-invalid @enderror" type="radio"
+                                        <input class="form-check-input @error('medico_id') is-invalid @enderror"
+                                               type="radio"
                                                {{ $paciente[0]['medico_id'] == $medico['id'] ? 'checked' : '' }} name="medico_id"
                                                value="{{ $medico['id'] }}">
                                         <span class="form-check-label">{{ $medico['Nombre'] }}</span>
@@ -81,12 +87,12 @@
 
                 <div class="card-footer d-flex justify-content-center">
                     <div class="btn-list flex-nowrap">
-                        <a class="btn btn-primary" href="{{ $parent_dir }}">
-                            Cancelar
-                        </a>
                         <button type="submit" class="btn btn-secondary ml-auto">
                             @yield('title')
                         </button>
+                        <a class="btn btn-primary" href="{{ $parent_dir }}">
+                            Cancelar
+                        </a>
                     </div>
                 </div>
             </form>
