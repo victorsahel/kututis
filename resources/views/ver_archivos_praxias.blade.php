@@ -1,7 +1,7 @@
 @extends('layouts.main-medico')
 @section('title', 'Ver video de praxia enviado')
 @php($nav = 'Pacientes')
-@php($parent_dir = url("medico/lista_archivos_praxias/{$id_medico}/{$id_user}/{$id_sesion_praxia}"))
+@php($parent_dir = url("medico/lista_archivos_praxias/{$id_medico}/{$id_user}/{$id_praxia}/{$id_sesion_praxia}"))
 
 @section('container','container-narrow')
 

@@ -124,8 +124,8 @@ Route::prefix('medico')->middleware(['jtw', 'role:medico', 'id'])->group(functio
     Route::get('lista_archivos_fonemas/{id_medico}/{id_user}/{id_fonema}/{id_sesion_fonema}', 'MedicoController@lista_archivos_fonemas')->name('medico.pacientes.fonemas.archivos.index');
 
     /** ARCHIVOS ENVIADOS */
-    Route::get('ver_archivos_praxias/{id_medico}/{id_user}/{id_sesion_praxia}/{id_archivo_praxia}', 'MedicoController@ver_archivos_praxias')->name('medico.pacientes.praxias.archivos.show');
-    Route::get('ver_archivos_fonemas/{id_medico}/{id_user}/{id_sesion_fonema}/{id_archivo_fonema}', 'MedicoController@ver_archivos_fonemas')->name('medico.pacientes.fonemas.archivos.show');
+    Route::get('ver_archivos_praxias/{id_medico}/{id_user}/{id_praxia}/{id_sesion_praxia}/{id_archivo_praxia}', 'MedicoController@ver_archivos_praxias')->name('medico.pacientes.praxias.archivos.show');
+    Route::get('ver_archivos_fonemas/{id_medico}/{id_user}/{id_fonema}/{id_sesion_fonema}/{id_archivo_fonema}', 'MedicoController@ver_archivos_fonemas')->name('medico.pacientes.fonemas.archivos.show');
     //Evaluar archivos
     Route::get('evaluar_archivo_sesion_praxia/{id_archivo_sesion_praxia}/{id_sesion_praxia}/{Aprobado}/{id_medico}', 'MedicoController@evaluar_archivo_sesion_praxia')->name('medico.pacientes.praxias.archivos.estado');
     Route::get('evaluar_archivo_sesion_fonema/{id_archivo_sesion_fonema}/{id_sesion_fonema}/{Aprobado}/{id_medico}', 'MedicoController@evaluar_archivo_sesion_fonema')->name('medico.pacientes.praxias.archivos.estado');

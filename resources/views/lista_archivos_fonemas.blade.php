@@ -49,7 +49,7 @@
                             <td>
                                 <div class="btn-list flex-nowrap justify-content-end" style="margin: -0.5rem">
                                     <a type="button"
-                                       href="{{ url("medico/ver_archivos_fonemas/{$id_medico}/{$id_user}/{$id_sesion_fonema}/{$archivos_sesion_fonema['id']}")  }}"
+                                       href="{{ url("medico/ver_archivos_fonemas/{$id_medico}/{$id_user}/{$fonema['id']}/{$id_sesion_fonema}/{$archivos_sesion_fonema['id']}")  }}"
                                        class="btn btn-icon btn-link btn-lg" title="Revisar Envio">
                                         <i class="fas fa-file-signature"></i>
                                     </a>

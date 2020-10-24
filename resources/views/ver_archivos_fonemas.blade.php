@@ -1,7 +1,7 @@
 @extends('layouts.main-medico')
 @section('title', 'Ver audio de fonema enviado')
 @php($nav = 'Pacientes')
-@php($parent_dir =  url("medico/lista_archivos_fonemas/{$id_medico}/{$id_user}/{$id_sesion_fonema}"))
+@php($parent_dir =  url("medico/lista_archivos_fonemas/{$id_medico}/{$id_user}/{$id_fonema}/{$id_sesion_fonema}"))
 
 @section('container','container-narrow')
 
@@ -37,7 +37,7 @@
                         data-placement="right">
                         @yield('title')
                     </h3>
-                    @if($archivos_sesion_fonemas[0]['Pendiente_x_Revisar'] == 1)
+                    @if($archivos_sesion_fonemas[0]['Aprobado'] == 0)
                         <div class="btn-list flex-nowrap">
                             <a class="btn btn-secondary btn-block" href="javascript:void(0)"
                                onclick="openConfirm('{{ url("/medico/evaluar_archivo_sesion_fonema/".$archivos_sesion_fonemas[0]["id"]."/".$archivos_sesion_fonemas[0]["sesion_fonema_id"]."/2/".$id_medico) }}', 'aprobar')">

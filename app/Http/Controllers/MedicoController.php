@@ -105,12 +105,12 @@ class MedicoController extends Controller
         return redirect()->back()->with('success', "La praxia ha sido asignada satisfactoriamente");
     }
 
-    public function ver_archivos_praxias($id_medico, $id_user, $id_sesion_praxia, $id)
+    public function ver_archivos_praxias($id_medico, $id_user, $id_praxia, $id_sesion_praxia, $id)
     {
         $respuesta = Http::get(api_url('/api/archivos_sesion_praxia/buscarxid/' . $id));
         $archivos_sesion_praxias = $respuesta->json()[0];
         // $video64 = base64_decode($archivos_sesion_praxias->archivo);
-        return view('ver_archivos_praxias', compact('archivos_sesion_praxias', 'id_medico', 'id_user', 'id_sesion_praxia'));
+        return view('ver_archivos_praxias', compact('archivos_sesion_praxias', 'id_medico', 'id_user', 'id_praxia' ,'id_sesion_praxia'));
     }
 
     //SESION FONEMAS
@@ -191,12 +191,12 @@ class MedicoController extends Controller
         return redirect()->back()->with('success', "La praxia ha sido asignada satisfactoriamente");
     }
 
-    public function ver_archivos_fonemas($id_medico, $id_user, $id_sesion_fonema, $id)
+    public function ver_archivos_fonemas($id_medico, $id_user, $id_fonema, $id_sesion_fonema, $id)
     {
         $respuesta = Http::get(api_url('/api/archivos_sesion_fonema/buscarxid/' . $id));
         $archivos_sesion_fonemas = $respuesta->json();
         // $video64 = base64_decode($archivos_sesion_praxias->archivo);
-        return view('ver_archivos_fonemas', compact('archivos_sesion_fonemas', 'id_medico', 'id_user', 'id_sesion_fonema'));
+        return view('ver_archivos_fonemas', compact('archivos_sesion_fonemas', 'id_medico', 'id_user', 'id_fonema' , 'id_sesion_fonema'));
     }
 
     //SESION VOCABULARIO

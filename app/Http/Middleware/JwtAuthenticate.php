@@ -25,6 +25,7 @@ class JwtAuthenticate
         if ($token->isExpired() || $token->beforeValid()) {
             $error = new MessageBag();
             $error->add('JWT', 'Ha expirado la sesión');
+            Jwt::clearToken();
             return redirect()->to('/login')->withErrors($error);
         }
 
